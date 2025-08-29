@@ -1,0 +1,80 @@
+# Technorox TCG Security Configuration
+# Apache .htaccess file for additional security
+
+# Deny access to sensitive files and directories
+<FilesMatch "\.(md|json|js|ts|config|env|log|bak|backup|old|tmp|temp)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Deny access to configuration files
+<Files ~ "^(package|vite|tailwind|postcss|firebase|firestore)\..*">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Deny access to environment files
+<Files ~ "^\.env">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Deny access to Firebase files
+<Files ~ "^(firebase|firestore|storage)\..*">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Deny access to development files
+<Files ~ "^(debug|test|fix|restart|clear)">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Deny access to source directories
+<Directory "src">
+    Order Allow,Deny
+    Deny from all
+</Directory>
+
+<Directory "server">
+    Order Allow,Deny
+    Deny from all
+</Directory>
+
+<Directory "node_modules">
+    Order Allow,Deny
+    Deny from all
+</Directory>
+
+# Security headers
+<IfModule mod_headers.c>
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options nosniff
+    
+    # Enable XSS protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Prevent clickjacking
+    Header always set X-Frame-Options DENY
+    
+    # Strict transport security (HTTPS only)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    
+    # Content Security Policy
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://api.stripe.com wss://*.firebaseio.com; frame-src https://js.stripe.com https://hooks.stripe.com;"
+    
+    # Referrer policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Remove server signature
+    Header always unset Server
+    Header always unset X-Powered-By
+</IfModule>
+
+# Disable directory browsing
+Options -Indexes
+
+# Custom error pages (optional)
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html

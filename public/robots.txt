@@ -1,0 +1,68 @@
+# Technorox TCG - Robots.txt
+# Protect sensitive areas from web crawlers
+
+User-agent: *
+
+# Block access to documentation and configuration files
+Disallow: /*.md$
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.config.*
+Disallow: /firebase*
+Disallow: /firestore*
+Disallow: /.env*
+Disallow: /.firebase*
+
+# Block development and debug files
+Disallow: /debug*
+Disallow: /test*
+Disallow: /*-debug*
+Disallow: /*-test*
+Disallow: /clear-*
+Disallow: /fix-*
+Disallow: /restart-*
+
+# Block admin areas (require authentication anyway)
+Disallow: /admin*
+Disallow: /api*
+
+# Block sensitive directories
+Disallow: /server/
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /.idea/
+
+# Block configuration and build files
+Disallow: /package*.json
+Disallow: /vite.config.*
+Disallow: /tailwind.config.*
+Disallow: /postcss.config.*
+
+# Block environment and credential files
+Disallow: /.env*
+Disallow: /*credentials*
+Disallow: /*-config.json
+Disallow: /aws-*
+Disallow: /stripe-*
+Disallow: /ses-*
+
+# Allow public game assets
+Allow: /favicon.svg
+Allow: /manifest.json
+Allow: /sw.js
+Allow: /assets/
+Allow: /images/
+Allow: /icons/
+
+# Allow main game pages (these require authentication anyway)
+Allow: /
+Allow: /about
+Allow: /login
+Allow: /register
+Allow: /terms-of-service
+Allow: /privacy-policy
+
+# Sitemap (if we create one later)
+Sitemap: https://technorox.com/sitemap.xml

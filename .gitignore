@@ -53,3 +53,42 @@ coverage/
 
 # nyc test coverage
 .nyc_output
+
+# Security - Sensitive documentation and files
+FIREBASE_SETUP.md
+INTEGRATION_STATUS.md
+TROUBLESHOOTING.md
+COMPLETE_FIX_GUIDE.md
+FIREBASE_DEPLOYMENT.md
+ROX_CHIPS_IMPLEMENTATION.md
+ROLE_BASED_SYSTEM.md
+
+# Debug and development files
+debug-*.html
+debug-*.js
+test-*.html
+test-*.js
+clear-sw.html
+fix-issues.js
+restart-*.bat
+restart-*.ps1
+vite.config.*.js
+!vite.config.js
+
+# Firebase sensitive files
+.firebaserc
+firebase.json
+firestore.indexes.json
+firestore.rules
+storage.rules
+
+# AWS and API credentials (double protection)
+aws-credentials.json
+ses-config.json
+stripe-config.json
+
+# Development utilities
+*.debug.*
+*.test.*
+*-debug.*
+*-test.*
