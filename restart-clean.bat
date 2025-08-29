@@ -1,0 +1,16 @@
+@echo off
+echo 🔄 Restarting Technorox development server...
+
+echo 🛑 Stopping existing processes...
+taskkill /F /IM node.exe >nul 2>&1
+
+echo ⏳ Waiting for processes to terminate...
+timeout /t 3 /nobreak >nul
+
+echo 🧹 Clearing cache...
+if exist "node_modules\.vite" rmdir /s /q "node_modules\.vite"
+
+echo 🚀 Starting development server (no WebSocket issues)...
+npm run dev
+
+pause

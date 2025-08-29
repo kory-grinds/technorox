@@ -1,0 +1,47 @@
+# Cursor ignore file
+# This file tells Cursor which files to ignore
+
+# Dependencies
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+.vite/
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files (but allow .env to be readable)
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Large media files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+
+# Note: .env is NOT ignored so Cursor can read it for development
+# Add specific .env files to ignore if needed:
+# .env.production
+# .env.staging

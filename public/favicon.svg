@@ -1,0 +1,22 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="4" fill="#0A0A0F"/>
+  <rect x="2" y="2" width="28" height="28" rx="2" fill="none" stroke="#00FFF7" stroke-width="1"/>
+  
+  <!-- Cyber grid pattern -->
+  <defs>
+    <pattern id="grid" width="4" height="4" patternUnits="userSpaceOnUse">
+      <path d="M 4 0 L 0 0 0 4" fill="none" stroke="#00FFF7" stroke-width="0.3" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect x="4" y="4" width="24" height="24" fill="url(#grid)"/>
+  
+  <!-- Central diamond -->
+  <path d="M16 8 L24 16 L16 24 L8 16 Z" fill="none" stroke="#FF3EF5" stroke-width="2"/>
+  <path d="M16 12 L20 16 L16 20 L12 16 Z" fill="#00FFF7" opacity="0.8"/>
+  
+  <!-- Corner accents -->
+  <circle cx="8" cy="8" r="1" fill="#FF3EF5"/>
+  <circle cx="24" cy="8" r="1" fill="#FF3EF5"/>
+  <circle cx="8" cy="24" r="1" fill="#FF3EF5"/>
+  <circle cx="24" cy="24" r="1" fill="#FF3EF5"/>
+</svg>

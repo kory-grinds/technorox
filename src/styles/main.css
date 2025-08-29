@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-neon-gray via-cyber-dark to-neon-purple;
+    min-height: 100vh;
+  }
+  
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #00FFF7 #1A001F;
+  }
+}
+
+@layer components {
+  .cyber-button {
+    @apply bg-gradient-to-r from-neon-cyan to-neon-magenta text-black font-bold py-3 px-6 
+           rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-neon
+           border border-neon-cyan;
+  }
+  
+  .cyber-button:hover {
+    @apply shadow-neon-pink;
+  }
+  
+  .cyber-card {
+    @apply bg-gradient-to-br from-cyber-light to-cyber-dark border border-neon-cyan/30 
+           rounded-xl p-6 backdrop-blur-sm shadow-cyber transition-all duration-300
+           hover:border-neon-cyan/60 hover:shadow-neon;
+  }
+  
+  .cyber-input {
+    @apply bg-cyber-dark border border-neon-cyan/50 rounded-lg px-4 py-2 text-white
+           focus:border-neon-cyan focus:outline-none focus:shadow-neon transition-all duration-300;
+  }
+  
+  .neon-text {
+    @apply text-neon-cyan font-cyber font-bold animate-glow;
+  }
+  
+  .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(0, 255, 247, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 247, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .game-board {
+    @apply bg-gradient-to-br from-cyber-dark to-neon-purple/20 
+           border-2 border-neon-cyan/30 rounded-xl p-4;
+    background-image: 
+      linear-gradient(rgba(0, 255, 247, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 247, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .card-slot {
+    @apply border-2 border-dashed border-neon-cyan/30 rounded-lg p-2 
+           transition-all duration-300 hover:border-neon-cyan/60 hover:bg-neon-cyan/10;
+  }
+  
+  .health-bar {
+    @apply bg-gradient-to-r from-red-500 to-red-700 h-4 rounded-full 
+           border border-neon-cyan/50 overflow-hidden;
+  }
+  
+  .energy-bar {
+    @apply bg-gradient-to-r from-neon-cyan to-blue-500 h-4 rounded-full 
+           border border-neon-cyan/50 overflow-hidden;
+  }
+  
+  .filter-btn {
+    @apply px-4 py-2 rounded-lg border border-gray-600 text-gray-300 
+           hover:border-neon-cyan hover:text-neon-cyan transition-all duration-300
+           bg-cyber-dark;
+  }
+  
+  .filter-btn.active {
+    @apply border-neon-cyan text-neon-cyan bg-neon-cyan/10;
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+    20%, 40%, 60%, 80% { transform: translateX(2px); }
+  }
+  
+  .animate-shake {
+    animation: shake 0.5s ease-in-out infinite;
+  }
+  
+  /* Card Flip Animations */
+  .card-container {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+  
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+  
+  .card-container.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 0.5rem;
+  }
+  
+  .card-back {
+    transform: rotateY(180deg);
+  }
+  
+  .card-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 255, 247, 0.3);
+  }
+  
+  .card-container.flipped:hover {
+    box-shadow: 0 8px 25px rgba(255, 62, 245, 0.3);
+  }
+  
+  /* Hexagon shape for card back */
+  .hexagon {
+    clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+  }
+  
+  /* Card rarity glows */
+  .card-container[data-rarity="Mythic"] {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+  }
+  
+  .card-container[data-rarity="Rare"] {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+  }
+  
+  .card-container[data-rarity="Uncommon"] {
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+  }
+  
+  /* Card reveal animation */
+  @keyframes cardReveal {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) rotateY(180deg);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(0.9) rotateY(90deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotateY(0deg);
+    }
+  }
+  
+  .card-reveal {
+    animation: cardReveal 0.8s ease-out forwards;
+  }
+  
+  /* Pack opening card effects */
+  @keyframes rarityPulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(139, 92, 246, 0.8), 0 0 40px rgba(255, 62, 245, 0.4);
+    }
+  }
+  
+  .mythic-reveal {
+    animation: rarityPulse 2s ease-in-out infinite;
+  }
+}

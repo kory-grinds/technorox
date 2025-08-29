@@ -1,0 +1,51 @@
+{
+  "name": "technorox-tcg",
+  "version": "1.0.0",
+  "description": "Technorox Trading Card Game - A cyberpunk-inspired browser-based TCG",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite --config vite.config.final.js",
+    "dev:hmr": "vite",
+    "dev:no-hmr": "vite --config vite.config.no-hmr.js",
+    "dev:clean": "powershell -ExecutionPolicy Bypass -File restart-dev.ps1",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server/index.js",
+    "email-server": "node server/email-ses.js",
+    "kill-port": "powershell -Command \"Get-Process -Name 'node' | Stop-Process -Force\"",
+    "clear-cache": "powershell -Command \"if (Test-Path 'node_modules\\.vite') { Remove-Item -Recurse -Force 'node_modules\\.vite' }\""
+  },
+  "keywords": [
+    "tcg",
+    "trading-card-game",
+    "cyberpunk",
+    "phaser3",
+    "game"
+  ],
+  "author": "Technorox Team",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-ses": "^3.490.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.0",
+    "@mui/material": "^5.15.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase": "^10.14.1",
+    "openai": "^4.20.1",
+    "phaser": "^3.70.0",
+    "socket.io": "^4.7.4",
+    "socket.io-client": "^4.7.4",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "vite": "^5.4.19"
+  }
+}

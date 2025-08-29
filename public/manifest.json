@@ -1,0 +1,105 @@
+{
+  "name": "Technorox TCG",
+  "short_name": "Technorox",
+  "description": "A cyberpunk-inspired trading card game featuring cybernetic beasts and strategic gameplay",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0F",
+  "theme_color": "#00FFF7",
+  "orientation": "portrait-primary",
+  "categories": ["games", "entertainment"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512", 
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop-1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Game Dashboard"
+    },
+    {
+      "src": "/screenshots/mobile-1.png", 
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile Game View"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Play Game",
+      "short_name": "Play",
+      "description": "Start a quick match",
+      "url": "/game",
+      "icons": [
+        {
+          "src": "/icons/play-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Collection",
+      "short_name": "Cards",
+      "description": "View your card collection",
+      "url": "/collection",
+      "icons": [
+        {
+          "src": "/icons/collection-icon.png", 
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Deck Builder",
+      "short_name": "Deck",
+      "description": "Build and edit decks",
+      "url": "/deck-builder",
+      "icons": [
+        {
+          "src": "/icons/deck-icon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}
